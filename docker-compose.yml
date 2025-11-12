@@ -1,0 +1,25 @@
+version: "3.9"
+
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: vuln-php-web-compose
+    ports:
+      - "8081:80"
+    environment:
+      DB_HOST: ${DB_HOST:-host.docker.internal}
+      DB_PORT: ${DB_PORT:-3306}
+      DB_USER: ${DB_USER:-root}
+      DB_PASS: ${DB_PASS:-12345}
+      DB_NAME: ${DB_NAME:-testing_web}
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    volumes:
+      - .:/var/www/html
+
+# Cara menjalankan:
+# 1) docker compose build
+# 2) docker compose up -d
+# 3) Akses http://localhost:8081/
