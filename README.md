@@ -8,7 +8,7 @@ Fitur:
 - Dashboard (session-based, stored & reflected XSS via session)
 - Logout (hapus session)
 
-Koneksi DB (sesuai permintaan):
+Koneksi DB (sesuaikan dengan koneksi anda):
 - Host: localhost
 - Port: 3306
 - User: root
@@ -29,9 +29,6 @@ Cara jalankan:
    - docker compose up -d
    - Akses: http://localhost:8081 (atau port yang Anda gunakan)
 
-Skema DB:
-- Aplikasi otomatis membuat database `testing_web` dan tabel `users` serta `products` ketika pertama kali diakses (index.php masih mendemokan SQLi/XSS produk).
-
 Eksploit contoh:
 - SQLi login: username: ' OR '1'='1  password: apapun
 - Reflected XSS pada pesan login/register.
@@ -45,7 +42,7 @@ Struktur proyek:
   - config.php (konfigurasi & koneksi DB)
 
 Docker Compose:
-- File docker-compose.yml men-setup service web (php:8.2-apache) dan memetakan port 8081.
+- File docker-compose.yml setup service web (php:8.2-apache) dan memetakan port 8080.
 - Variabel environment DB_* bisa di-override via .env atau perintah compose (default ke host.docker.internal:3306, root/12345, testing_web).
 - extra_hosts: host.docker.internal:host-gateway disediakan agar container bisa resolve host machine.
 
