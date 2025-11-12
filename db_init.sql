@@ -3,7 +3,7 @@
 -- PERINGATAN: Data dan schema ini sengaja tidak aman. Gunakan hanya untuk pembelajaran/pentest lokal.
 --
 
-CREATE DATABASE IF NOT EXISTS `testing_web`
+CREATE DATABASE IF NOT EXISTS `project_vuln_site`
   CHARACTER SET utf8mb4
   COLLATE utf8mb4_general_ci;
 
